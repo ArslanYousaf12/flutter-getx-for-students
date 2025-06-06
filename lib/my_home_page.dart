@@ -19,13 +19,50 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app_learning/controllers/tab_controller.dart';
+import 'package:getx_app_learning/first_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
+  final List<String> texts = const ['Go To first', 'Tap', 'Tap', 'Tap'];
+
+  void onTap2() {
+    Get.to(FirstPage());
+  }
+
   @override
   Widget build(BuildContext context) {
     TabControllerGet tabController = Get.put(TabControllerGet());
+    void onTap() {
+      tabController.increment();
+    }
+    // Using Get.put() to initialize the controller and make it available for dependency injection
+    // This allows us to access the controller without needing to pass context around
+    // and ensures that the controller is created only once and reused throughout the app.
+    // This is different from Flutter's built-in TabController, which is used for managing tabs in a TabBar.
+    // Here, we are using GetX's state management to handle the counter logic.
+    // The controller manages an internal counter (_x) and provides an increment method to update it.
+    // The GetBuilder widget listens to changes in the TabControllerGet and rebuilds the UI
+    // whenever the update() method is called in the controller.
+    // This allows us to reactively update the UI based on the controller's state.
+    // The UI consists of a counter display and multiple tap-responsive containers.
+    // The counter display shows the current value of _x from the controller,
+    // and the tap-responsive containers increment this value when tapped.
+    // This approach allows for a clean separation of concerns,
+    // where the controller handles the logic and state management,
+    // while the UI focuses on displaying the data and responding to user interactions.
+    // The use of GetX's reactive programming model simplifies state management
+    // and makes it easy to build responsive UIs that update automatically
+    // when the underlying data changes.
+    // The controller is initialized using Get.put() which registers it for dependency injection.
+    // This allows us to access the controller without needing to pass context around
+    // and ensures that the controller is created only once and reused throughout the app.
+    // This is different from Flutter's built-in TabController, which is used for managing tabs in a TabBar.
+    // Here, we are using GetX's state management to handle the counter logic.
+    // The controller manages an internal counter (_x) and provides an increment method to update it.
+    // The GetBuilder widget listens to changes in the TabControllerGet and rebuilds the UI
+    // whenever the update() method is called in the controller.
+
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -60,9 +97,7 @@ class MyHomePage extends StatelessWidget {
             ...List.generate(
               4,
               (index) => GestureDetector(
-                onTap: () {
-                  tabController.increment();
-                },
+                onTap: index == 0 ? onTap2 : onTap,
                 child: Container(
                   margin: EdgeInsets.all(20),
                   width: double.maxFinite,
@@ -73,7 +108,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'Tap',
+                      texts[index],
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
