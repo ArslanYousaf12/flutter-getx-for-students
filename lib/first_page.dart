@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:getx_app_learning/controllers/tab_controller.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TabControllerGet controller = Get.find<TabControllerGet>();
     return Scaffold(
       appBar: AppBar(
         title: Text('First Page'),
@@ -33,7 +36,7 @@ class FirstPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  'Tap',
+                  controller.x.toString(),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
