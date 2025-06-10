@@ -20,4 +20,9 @@ class TabControllerGet extends GetxController {
     _x++;
     update(); // Notify listeners to update the UI
   }
+
+  void decreaseX() {
+    _x--;
+    update(); // Notify listeners to update the UI
+  }
 }
