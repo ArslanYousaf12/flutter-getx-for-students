@@ -16,6 +16,27 @@ class ThirdPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Obx(
+              () => Container(
+                margin: EdgeInsets.all(20),
+                width: double.maxFinite,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFF89dad0), // Green color
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    "Y value " + controllerGet.y.value.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             GestureDetector(
               onTap: () {
                 Get.to(MyHomePage());
@@ -31,7 +52,32 @@ class ThirdPage extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    controllerGet.x.toString(),
+                    "X value " + controllerGet.x.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                controllerGet.incrementY();
+                // Increase the value of x in the controller
+              },
+              child: Container(
+                margin: EdgeInsets.all(20),
+                width: double.maxFinite,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFF89dad0), // Green color
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    "Increase Y",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
