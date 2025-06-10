@@ -25,7 +25,7 @@ import 'package:getx_app_learning/second_page.dart';
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
-  final List<String> texts = const ['Go To first', 'Tap', 'Tap', 'Tap'];
+  final List<String> texts = const ['Go To first', 'Tap', 'Second', 'Tap'];
 
   void onTap2() {
     Get.to(FirstPage());

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_app_learning/controllers/tab_controller.dart';
 
-import 'package:getx_app_learning/third_page.dart';
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TabControllerGet controllerGet = Get.find();
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -16,9 +16,7 @@ class SecondPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () {
-                Get.to(ThirdPage());
-              },
+              onTap: () {},
               child: Container(
                 margin: EdgeInsets.all(20),
                 width: double.maxFinite,
@@ -29,7 +27,7 @@ class SecondPage extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "Third",
+                    controllerGet.x.toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
