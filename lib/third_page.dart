@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app_learning/controllers/tab_controller.dart';
+import 'package:getx_app_learning/my_home_page.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -16,7 +17,10 @@ class ThirdPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(MyHomePage());
+                // Navigate back to MyHomePage
+              },
               child: Container(
                 margin: EdgeInsets.all(20),
                 width: double.maxFinite,
