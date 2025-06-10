@@ -20,6 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app_learning/controllers/tab_controller.dart';
 import 'package:getx_app_learning/first_page.dart';
+import 'package:getx_app_learning/second_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -29,6 +30,12 @@ class MyHomePage extends StatelessWidget {
   void onTap2() {
     Get.to(FirstPage());
   }
+
+  void goToSecond() {
+    Get.to(SecondPage());
+  }
+
+  final List functionName = const ["onTap", "onTap2", "goToSecond", "onTap2"];
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +104,22 @@ class MyHomePage extends StatelessWidget {
             ...List.generate(
               4,
               (index) => GestureDetector(
-                onTap: index == 0 ? onTap2 : onTap,
+                onTap: () {
+                  switch (index) {
+                    case 0:
+                      onTap2();
+                      break;
+                    case 1:
+                      onTap();
+                      break;
+                    case 2:
+                      goToSecond();
+                      break;
+                    case 3:
+                      onTap2();
+                      break;
+                  }
+                },
                 child: Container(
                   margin: EdgeInsets.all(20),
                   width: double.maxFinite,
