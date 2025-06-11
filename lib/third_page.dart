@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_app_learning/controllers/list_controller.dart';
 import 'package:getx_app_learning/controllers/tab_controller.dart';
 import 'package:getx_app_learning/my_home_page.dart';
 
@@ -9,6 +10,7 @@ class ThirdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TabControllerGet controllerGet = Get.find();
+    ListController controllerList = Get.find();
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -126,6 +128,31 @@ class ThirdPage extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "Total X + Y",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                controllerList.setValue(controllerGet.z.value);
+                // Increase the value of x in the controller
+              },
+              child: Container(
+                margin: EdgeInsets.all(20),
+                width: double.maxFinite,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFF89dad0), // Green color
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    "Save Total",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,

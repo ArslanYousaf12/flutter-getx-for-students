@@ -18,6 +18,7 @@
 /// that increment the counter when tapped.
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_app_learning/controllers/list_controller.dart';
 import 'package:getx_app_learning/controllers/tab_controller.dart';
 import 'package:getx_app_learning/first_page.dart';
 import 'package:getx_app_learning/second_page.dart';
@@ -40,6 +41,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TabControllerGet tabController = Get.put(TabControllerGet());
+    ListController controllerList = Get.put(ListController());
     void onTap() {
       tabController.increment();
     }
